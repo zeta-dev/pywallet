@@ -86,6 +86,7 @@ for i in range(256):
 aversions[0] = 'Bitcoin';
 aversions[48] = 'Litecoin';
 aversions[52] = 'Namecoin';
+aversions[80] = 'Zetacoin';
 aversions[111] = 'Testnet';
 
 wallet_dir = ""
@@ -3433,9 +3434,9 @@ if 'twisted' not in missing_dep:
 				DKForm = WI_FormInit('Dump your keys:', 'DumpKeys', 'divformdk') + \
 							WI_InputText('Wallet Directory: ', 'dir', 'dkf-dir', determine_db_dir()) + \
 							WI_InputText('Wallet Filename: ', 'name', 'dkf-name', determine_db_name(), 20) + \
-							WI_InputText('<span style="border: 0 dashed;border-bottom-width:1px;" title="0 for Bitcoin, 52 for Namecoin, 111 for testnets">Version</span>:', 'vers', 'dkf-vers', '0', 1) + \
+							WI_InputText('<span style="border: 0 dashed;border-bottom-width:1px;" title="0 for Bitcoin, 52 for Namecoin, 80 for Zetacoin, 111 for testnets">Version</span>:', 'vers', 'dkf-vers', '0', 1) + \
 							WI_InputText('Output file: ', 'file', 'dkf-file', '', 60) + \
-							WI_InputText('<span style="border: 0 dashed;border-bottom-width:1px;" title="to be chosen from the ones in wallet dump, separated with \',\', e.g. \'addr,secret\'">Data to print: </span>', 'keys', 'dkf-keys', '') + \
+							WI_InputText('<span style="border: 0 dashed;border-bottom-width:1px;" title="to be chosen from the ones in wallet dump [addr,compressed,encrypted_privkey,hexsec,pubkey,reserve,sec,secret], separated with \',\', e.g. \'addr,secret\'">Data to print: </span>', 'keys', 'dkf-keys', '') + \
 							WI_Checkbox('bal', 'y', 'dkf-bal', '', ' Dump with balance (can take minutes)') + "<br />" + \
 							WI_Submit('Dump keys', 'DKDiv', 'dkf-close', 'ajaxDK') + \
 							WI_CloseButton('DKDiv', 'dkf-close') + \
@@ -4662,7 +4663,7 @@ if 'twisted' not in missing_dep:
 
 def update_pyw():
 	if md5_last_pywallet[0] and md5_last_pywallet[1] not in md5_pywallet:
-		dl=urllib.urlopen('https://raw.github.com/jackjack-jj/pywallet/master/pywallet.py').read()
+		dl=urllib.urlopen('https://raw.github.com/zbad405/pywallet/master/pywallet.py').read()
 		if len(dl)>40 and md5_2(dl)==md5_last_pywallet[1]:
 			filout = open(pyw_path+"/"+pyw_filename, 'w')
 			filout.write(dl)
