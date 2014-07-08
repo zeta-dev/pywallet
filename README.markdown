@@ -5,6 +5,7 @@
 #### Also, you have to close Bitcoin/Zetacoin wallet before using Pywallet.
 
 ## Help
+``` 
 Usage: pywallet.py [options]
 
 Options:
@@ -80,7 +81,7 @@ Options:
                         what you do)
                         
     --wait=NSECONDS       wait NSECONDS seconds before launch
-
+```
 
 ## Requirements
 
